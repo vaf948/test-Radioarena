@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Виктор — сайты для малого бизнеса и электроника для радиолюбителей</title>
+<meta name="description" content="Виктор: собираю одностраничные сайты для малого бизнеса и разрабатываю электронные изделия UNICOM 4.1 для радиолюбителей.">
+<link rel="icon" type="image/png" href="brand_assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --accent:#2F6BDE;
+    --headline:#14243E;
+    --text:#3A4454;
+    --bg:#F7F9FC;
+    --line:#E3EAF5;
+    --radius:14px;
+    --font-head:'Manrope','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --font-body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font-body);
+    background:var(--bg);
+    color:var(--text);
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .container{max-width:1120px;margin:0 auto;padding:0 24px}
+
+  /* Шапка */
+  header{
+    position:sticky;top:0;z-index:10;
+    background:rgba(247,249,252,.9);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .nav img{height:44px;width:auto;display:block}
+  .nav a.phone{
+    font-family:var(--font-head);font-weight:700;font-size:16px;
+    color:var(--headline);text-decoration:none;
+    padding:10px 18px;border-radius:999px;
+    border:1px solid var(--line);background:#fff;
+    transition:background .2s ease,border-color .2s ease;
+  }
+  .nav a.phone:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* Первый экран */
+  .hero{padding:88px 0 96px}
+  .hero .kicker{
+    display:inline-block;font-size:14px;font-weight:600;
+    color:var(--accent);background:#EAF1FD;
+    padding:6px 14px;border-radius:999px;margin-bottom:24px;
+  }
+  h1{
+    font-family:var(--font-head);font-weight:800;
+    font-size:52px;line-height:1.12;letter-spacing:-.01em;
+    color:var(--headline);max-width:22ch;text-wrap:balance;
+  }
+  .hero p.lead{
+    font-size:20px;max-width:56ch;margin-top:24px;
+  }
+  .hero .actions{margin-top:36px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+  .btn{
+    display:inline-block;font-family:var(--font-head);font-weight:700;font-size:17px;
+    color:#fff;background:var(--accent);text-decoration:none;
+    padding:16px 32px;border-radius:var(--radius);
+    box-shadow:0 8px 24px rgba(47,107,222,.28);
+    transition:transform .2s ease,box-shadow .2s ease;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(47,107,222,.34)}
+  .btn-ghost{
+    display:inline-block;font-weight:600;font-size:17px;color:var(--headline);
+    text-decoration:none;padding:16px 8px;border-bottom:2px solid var(--accent);
+  }
+
+  /* Карточки направлений */
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:0 0 96px}
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:32px;box-shadow:0 4px 16px rgba(20,36,62,.05);
+  }
+  .card h2{
+    font-family:var(--font-head);font-weight:800;font-size:24px;
+    color:var(--headline);margin-bottom:12px;
+  }
+  .card p{font-size:16px}
+  .card .tag{
+    display:inline-block;font-size:13px;font-weight:600;color:var(--accent);
+    margin-bottom:16px;padding:4px 12px;border-radius:999px;background:#EAF1FD;
+  }
+
+  /* Факты */
+  .facts{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .facts-inner{padding-top:72px;padding-bottom:72px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+  .fact .num{
+    font-family:var(--font-head);font-weight:800;font-size:15px;color:var(--accent);
+    letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;
+  }
+  .fact h3{
+    font-family:var(--font-head);font-weight:700;font-size:19px;color:var(--headline);margin-bottom:8px;
+  }
+  .fact p{font-size:15px}
+
+  /* Контакты */
+  .contact{padding:96px 0;text-align:center}
+  .contact h2{
+    font-family:var(--font-head);font-weight:800;font-size:40px;color:var(--headline);
+    margin-bottom:16px;
+  }
+  .contact p{max-width:48ch;margin:0 auto}
+  .contact a.big{
+    display:inline-block;margin-top:32px;
+    font-family:var(--font-head);font-weight:800;font-size:32px;
+    color:var(--accent);text-decoration:none;letter-spacing:.01em;
+  }
+  .contact a.big:hover{text-decoration:underline}
+  .contact .note{margin-top:12px;font-size:15px}
+
+  footer{background:#E9ECF2;border-top:1px solid var(--line);padding:28px 0;text-align:center;font-size:14px;color:#5A6478}
+
+  /* Появление при скролле */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.visible{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  /* Телефон */
+  @media (max-width:760px){
+    body{font-size:16px}
+    .hero{padding:56px 0 64px}
+    h1{font-size:34px;max-width:100%}
+    .hero p.lead{font-size:18px;margin-top:18px}
+    .cards{grid-template-columns:1fr;padding-bottom:64px}
+    .facts-inner{grid-template-columns:1fr;gap:24px;padding-top:56px;padding-bottom:56px}
+    .contact{padding:64px 0}
+    .contact h2{font-size:30px}
+    .contact a.big{font-size:26px}
+    .nav{height:64px}
+    .nav img{height:36px}
+    .nav a.phone{font-size:14px;padding:8px 14px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <img src="brand_assets/logo.png" alt="RadioArena UNICOM 4.1">
+    <a class="phone" href="tel:+79038917970">+7 903 891-79-70</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <span class="kicker">Виктор · сайты и электроника</span>
+    <h1>Делаю сайты для малого бизнеса. Паяю электронику для радиолюбителей.</h1>
+    <p class="lead">С одной стороны — одностраничные сайты, которые продают: прайс, отзывы, онлайн-запись или калькулятор. С другой — собственные разработки UNICOM 4.1, которые я придумываю, собираю и продаю через свой интернет-сайт.</p>
+    <div class="actions">
+      <a class="btn" href="tel:+79038917970">Позвонить и договориться</a>
+      <a class="btn-ghost" href="#what">Что именно я делаю</a>
+    </div>
+  </div>
+</section>
+
+<section class="container cards" id="what">
+  <div class="card reveal">
+    <span class="tag">Направление первое</span>
+    <h2>Сайты для малого бизнеса</h2>
+    <p>Собираю одностраничные сайты для мастеров и малого бизнеса: шиномонтаж, маникюр, клининг, автосервис. Живой прайс, настоящие отзывы, кнопка записи. Показываю заказчику на его телефоне, правлю по его словам.</p>
+  </div>
+  <div class="card reveal">
+    <span class="tag">Направление второе</span>
+    <h2>Электроника UNICOM 4.1</h2>
+    <p>Я электронщик: разрабатываю электронные изделия для радиолюбителей, изготавливаю их своими руками и реализую через собственный интернет-сайт. От схемы до посылки с изделием — всё прохожу сам.</p>
+  </div>
+</section>
+
+<section class="facts">
+  <div class="container facts-inner">
+    <div class="fact reveal">
+      <div class="num">01</div>
+      <h3>Руки из плеч</h3>
+      <p>Электроника — не хобби на диване: схемы, платы, пайка, корпуса. Изделие существует, пока я его не собрал.</p>
+    </div>
+    <div class="fact reveal">
+      <div class="num">02</div>
+      <h3>Свой интернет-магазин</h3>
+      <p>Продаю изделия через собственный сайт: витрина, заказ, отправка. Знаю интернет-торговлю не по учебнику.</p>
+    </div>
+    <div class="fact reveal">
+      <div class="num">03</div>
+      <h3>Сайты, которые работают</h3>
+      <p>Делаю для бизнеса такие сайты, какой нужен мне самому: понятный, быстрый, с записью и настоящими ценами.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="container reveal">
+    <h2>Позвоните — договоримся</h2>
+    <p>Нужен сайт для малого бизнеса или изделие для радиолюбителя? Звоните, расскажу по-честному, что смогу и сколько это займёт.</p>
+    <a class="big" href="tel:+79038917970">+7 903 891-79-70</a>
+    <div class="note">Звонки и WhatsApp · отвечаю сам</div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">Виктор · сайты для малого бизнеса · электроника для радиолюбителей UNICOM 4.1</div>
+  <div class="container" style="margin-top:10px"><a href="v2/" style="color:#5A6478">Тёмная версия сайта «Fusion»</a></div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target);} });
+  },{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
